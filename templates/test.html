@@ -1,0 +1,27 @@
+<!-- test.html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/quiz.css">
+    <title>Math Symbols Test</title>
+</head>
+<body>
+    <h1>Quiz sur les symboles mathématiques</h1>
+    {% if feedback %}
+        <p>{{ feedback }}</p>
+        <p>Points: {{ points }}</p>
+    {% endif %}
+
+    <p>Quel est le symbole qui signifie : "<span class="meaning-text">{{ meaning }}</span>" ?</p>
+    <form action="/test" method="post">
+        {% for option in options %}
+            <label class="option-label">
+                <input type="radio" name="answer" value="{{ option }}">
+                {{ option }}
+            </label><br>
+        {% endfor %}
+        <input type="hidden" name="meaning" value="{{ meaning }}">
+        <button type="submit">Soumettre</button>
+    </form>
+</body>
+</html>

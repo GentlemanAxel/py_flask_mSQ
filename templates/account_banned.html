@@ -1,0 +1,63 @@
+<!-- account_banned.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Banned</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e; /* Dark background color */
+            text-align: center;
+            padding: 50px;
+            color: #ffffff; /* White text color */
+        }
+
+        .container {
+            background-color: #333333; /* Dark gray container background */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            color: #8b0000; /* Red title color */
+        }
+
+        p {
+            font-size: 18px;
+            color: #dddddd; /* Light gray text color */
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #8b0000; /* Red button background color */
+            color: #ffffff; /* White text color */
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #cc0000; /* Darker red on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Account Has Been Banned</h1>
+        <p>Your username: {{ current_user.username }}</p>
+        <p>Reason for ban: {{ current_user.ban_reason }}</p>
+        <p>Duration of ban: {% if current_user.ban_expiration_time %}
+            {{ (current_user.ban_expiration_time - current_time).days }} days
+            {% else %}
+            Permanent
+            {% endif %}
+        </p>
+        <a href="{{ url_for('complain') }}" class="btn">Complain About Ban</a>
+    </div>
+</body>
+</html>

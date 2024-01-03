@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 50px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+button {
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 24px;
+    background-color: #008CBA;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+button.logout-btn {
+    background-color: #C70039;
+}
+
+button:hover {
+    background-color: #005F6B;
+}

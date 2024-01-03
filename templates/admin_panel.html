@@ -1,0 +1,74 @@
+<!-- admin_panel.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <p>Welcome, {{ current_user.username }}!</p>
+
+    <h2>User List:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Status</th>
+                <th>Ban Reason</th>
+                <th>Ban Duration</th>
+                <th>Action</th> <!-- Add a new column for the Unban button -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>
+                        {% if user.is_banned %}
+                            Banned
+                        {% else %}
+                            Not Banned
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if user.is_banned %}
+                            {{ user.ban_reason or 'N/A' }}
+                        {% else %}
+                            N/A
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if user.is_banned %}
+                            {% if user.ban_expiration_time %}
+                                {{ user.ban_expiration_time.strftime('%Y-%m-%d %H:%M:%S') }}
+                            {% else %}
+                                Permanent
+                            {% endif %}
+                        {% else %}
+                            N/A
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if user.is_banned %}
+                            <form method="POST" action="{{ url_for('unban_user') }}">
+                                <input type="hidden" name="user_id_to_unban" value="{{ user.id }}">
+                                <button type="submit">Unban</button>
+                            </form>
+                        {% else %}
+                            <form method="POST" action="{{ url_for('ban_user', user_id=user.id) }}">
+                                <input type="text" name="reason" placeholder="Ban Reason">
+                                <input type="text" name="ban_days" placeholder="Ban Duration (in days)">
+                                <button type="submit">Ban</button>
+                            </form>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #008CBA;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005F6B;
+}
+
+input[type="radio"] {
+    margin-right: 20px;
+    transform: scale(2);
+}
+
+.option-label {
+    font-size: 24px;
+}
+
+.meaning-text {
+    color: #800000;
+    font-weight: bold;
+    font-size: 1.1em;
+}

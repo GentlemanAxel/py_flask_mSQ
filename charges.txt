@@ -1,0 +1,17 @@
+Primary:
+Fix infinite dots when refreshing the page - when the page is refreshed -> reset the session and the dots to go back to 0:
+Fix "submit" button when no option is selected
+Add more symbols -> https://fr.wikipedia.org/wiki/Table_de_symboles_math%C3%A9matiques
+Make several game modes (middle school - high school - university)
+Add a 1 minute timer.
+add statistics
+Add a duel mode.
+add the possibility of multiple symbols and phrases appearing
+create an achievement system
+Improve the registration system with an email and check to avoid creating 10,000 accounts.
+
+Secondary:
+Fix ban system
+Add time remaining on the ban page
+Create a complaints system for banned users
+Improve admin panel

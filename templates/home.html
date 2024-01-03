@@ -1,0 +1,24 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to Math Symbols Test!</h1>
+
+    {% if current_user.is_authenticated %}
+        <button onclick="window.location.href='{{ url_for('profile') }}'">Profile</button>
+        <button onclick="window.location.href='{{ url_for('test') }}'">Test</button>
+        <button onclick="window.location.href='{{ url_for('statistics') }}'">Statistics</button>
+        <button onclick="window.location.href='{{ url_for('logout') }}'" class="logout-btn">Logout</button>
+    {% else %}
+        <button onclick="window.location.href='{{ url_for('login') }}'">Login</button>
+        <button onclick="window.location.href='{{ url_for('register') }}'">Register</button>
+    {% endif %}
+</body>
+</html>
+
+

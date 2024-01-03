@@ -1,0 +1,23 @@
+<!-- profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Profile</title>
+</head>
+<body>
+  <h1>Profile Page</h1>
+  <p>Username: {{ current_user.username }}</p>
+  <p>Biography: {{ current_user.email }}</p>
+
+  {% if current_user.is_admin %}
+    <p><strong>Admin Status: Yes</strong></p>
+    <!-- You can add additional admin-related information here -->
+  {% else %}
+    <p>Admin Status: No</p>
+  {% endif %}
+
+  <button onclick="window.location.href='{{ url_for('logout') }}'" class="logout-btn">Logout</button>
+</body>
+</html>
